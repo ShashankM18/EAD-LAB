@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multiplication Table</title>
+</head>
+<body>
+  <label>Enter the number:</label>
+  <input id="numberInput" type="number" />
+  <button onclick="generateTable()">Get Table</button>
+
+  <div id="result"></div>  <!-- This is where the table will appear -->
+
+  <script>
+    function generateTable() {
+      const num = +document.getElementById('numberInput').value; 
+      const resultDiv = document.getElementById('result');
+      
+      if (!num || num <= 0) {
+        resultDiv.innerHTML = 'Please enter a positive number.';
+        return;
+      }
+
+      let table = '<table border="1"><tr><th>Multiplier</th><th>Result</th></tr>';
+      for (let i = 1; i <= 10; i++) {
+        table += `<tr><td>${num} x ${i}</td><td>${num * i}</td></tr>`;
+      }
+      table += '</table>';
+
+      resultDiv.innerHTML = table;
+    }
+  </script>
+</body>
+</html>
